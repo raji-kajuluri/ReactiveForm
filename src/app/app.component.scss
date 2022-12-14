@@ -1,0 +1,66 @@
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+    background-color: rgb(199, 174, 199);
+}
+
+.form-control.ng-touched.ng-valid {
+    border: 2px solid green;
+    background-color: lightgray;
+}
+
+.sml.ng-invalid.ng-touched {
+    color: red;
+    font-size: 100px;
+}
+
+.container-fluid {
+    background-image: url('/assets/bus.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+:host::ng-deep .p-card {
+    background-color: #faf0e6;
+    margin-left: 430px;
+    border: 1px solid black;
+
+    .p-card-body {
+        padding: 0rem;
+    }
+
+    .p-card-content {
+        padding: 1.25rem 1.25rem;
+    }
+}
+
+table {
+    border: 2px solid black;
+    color: black;
+}
+
+.buslogo {
+    width: 63px;
+    height: 48px;
+    margin-left: 16px;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.foot {
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+input.form-control.ng-untouched.ng-pristine.ng-invalid {
+    background: transparent;
+    border: 1px solid black;
+}
+
+.col-form-label {
+    color: black;
+    font-size: 22px;
+}

@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg  bg-light">
+  <img class="buslogo" src="/assets/logo.png" alt="bus">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbarText">
+    <ul class="navbar-nav  m-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><b>Bus Tickets</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><b>Features</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><b>Pricing</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><b>Blog</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><b>Manage Booking</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><b>Logout</b></a>
+      </li>
+    </ul>
+
+  </div>
+  <button class="btn btn-dark me-5" type="submit">Register</button>
+</nav>
+<div class="container-fluid">
+  <p-card [style]="{'width': '25rem','height':'auto'}">
+    <div clas="regform ">
+      <h1 class="text-dark">SEAT BOOKING</h1>
+      <form [formGroup]="exform">
+        <div class="form-group">
+          <label class="col-form-label"> Name</label>
+          <input formControlName="name" type="text" class="form-control">
+          <span *ngIf="exform.get('name')?.invalid && exform.get('name')?.touched " class="text-danger">Enter the name
+            of candidate
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="col-form-label">Email</label>
+          <input formControlName="email" type="text" class="form-control">
+          <span *ngIf="exform.get('email')?.invalid && exform.get('email')?.touched " class="text-danger">Enter Valid
+            Email</span>
+        </div>
+        <div class="form-group">
+          <label class="col-form-label">From</label>
+          <input formControlName="fromcity" type="text" class="form-control">
+          <span *ngIf="exform.get('fromcity')?.invalid && exform.get('fromcity')?.touched " class="text-danger">From
+            City is Required</span>
+        </div>
+        <div class="form-group">
+          <label class="col-form-label">To</label>
+          <input formControlName="tocity" type="text" class="form-control">
+          <span *ngIf="exform.get('tocity')?.invalid && exform.get('tocity')?.touched " class="text-danger">To City is
+            Required</span>
+        </div>
+        <div class="form-group">
+          <label class="col-form-label">Seat Number</label>
+          <input formControlName="number" type="text" class="form-control">
+          <span *ngIf="exform.get('number')?.invalid && exform.get('number')?.touched " class="sml text-danger">Seat
+            number must be less than two digits</span>
+        </div>
+        <div class="form-group ">
+          <label class="col-form-label">Date</label>
+          <input formControlName="date3" type="date" class="form-control">
+          <span *ngIf="exform.get('date3')?.invalid && exform.get('date3')?.touched " class="sml text-danger">Date is
+            Required</span>
+        </div>
+        <div class="form-group d-flex">
+          <button (click)="add()" [disabled]="exform.invalid" type="button"
+            class="btn btn-dark mt-3 mb-3">Submit</button>
+          <button (click)="reset()" [disabled]="exform.invalid" type="button"
+            class="btn btn-dark mt-3 mb-3 ms-auto">Reset</button>
+        </div>
+      </form>
+    </div>
+  </p-card>
+  <p-dialog header="Seat Details" [(visible)]="display" [style]="{width: '70vw'}">
+    <table class="table table-bordered me-5">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Seat Number</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list">
+          <td><span>{{item.name}}</span></td>
+          <td><span>{{item.fromcity}}</span></td>
+          <td><span>{{item.tocity}}</span></td>
+          <td><span>{{item.number}}</span></td>
+          <td><span>{{item.date3}}</span></td>
+          <td><button (click)="remove()" type="button" class="btn btn-dark">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </p-dialog>
+</div>
+<footer class=" foot bg-secondary justify-content-center p-3 ">Happy Journey @Redbus</footer>
